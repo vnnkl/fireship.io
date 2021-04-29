@@ -62,7 +62,7 @@ class AuthService {
 
   /// Anonymous Firebase login
   Future<FirebaseUser> anonLogin() async {
-    AuthResult result = await _auth.signInAnonymously();
+    AuthResult result = await auth.signInAnonymously();
     FirebaseUser user = result.user;
 
     updateUserData(user);
@@ -90,6 +90,8 @@ Access the current user with Provider.
 
 {{< file "dart" "main.dart" >}}
 ```dart
+import 'package:firebase_auth/firebase_auth.dart';
+
 Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
